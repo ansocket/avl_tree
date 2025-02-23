@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/hocok/Documents/programming/avl_tree/build",
+  "command": "/usr/bin/g++ -I/home/hocok/Documents/programming/avl_tree/Tree/. -g -g -o CMakeFiles/avl_tree.dir/main.cpp.o -c /home/hocok/Documents/programming/avl_tree/main.cpp",
+  "file": "/home/hocok/Documents/programming/avl_tree/main.cpp",
+  "output": "CMakeFiles/avl_tree.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hocok/Documents/programming/avl_tree/build",
+  "command": "/usr/bin/g++ -I/home/hocok/Documents/programming/avl_tree/Tree/. -g -g -o Tree/CMakeFiles/AVL_Tree.dir/AVL_Tree.cpp.o -c /home/hocok/Documents/programming/avl_tree/Tree/AVL_Tree.cpp",
+  "file": "/home/hocok/Documents/programming/avl_tree/Tree/AVL_Tree.cpp",
+  "output": "Tree/CMakeFiles/AVL_Tree.dir/AVL_Tree.cpp.o"
+}
+]
