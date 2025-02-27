@@ -12,7 +12,7 @@ Node* AVL_Tree::rotateleft(Node* q) // левый поворот вокруг q
 
 Node* AVL_Tree::rotateright(Node* p) // правый поворот вокруг p
 {
-    Node* q = q->get_left();
+    Node* q = p->get_left();
     p->set_left(q->get_right());
     q->set_right(p);
     p->fixheight();

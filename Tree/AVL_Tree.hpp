@@ -1,7 +1,8 @@
 #pragma once
 
 #include <cstdint>
-#include <iostream>
+#include <stack>
+
 class Node
 {
 private:
@@ -85,7 +86,11 @@ public:
 
 class AVL_Tree
 {
+public:
+    typedef void (*callback_t)(Node* node);
+private:
     Node* root;
+    callback_t traversal_callback;
 
     Node* rotateleft(Node* q); // левый поворот вокруг q
     Node* rotateright(Node* p); // правый поворот вокруг p
@@ -96,18 +101,32 @@ class AVL_Tree
     Node* prv_remove(Node* p, int key);
     void prv_traverse_nlr(Node* p)
     {
-        if(p)
+        std::stack <Node*> q;
+        q.push(p);
+        while(!q.empty())
         {
-            std::cout << p->get_key() << " ";
-            prv_traverse_nlr(p->get_left());
-            prv_traverse_nlr(p->get_right());
+            Node* node = q.top();
+            q.pop();
+            if(this->traversal_callback != nullptr)
+            {
+                this->traversal_callback(node);
+            }
+            if(node->get_right() != nullptr)
+            {
+                q.push(node->get_right());
+            }
+            if(node->get_left() != nullptr)
+            {
+                q.push(node->get_left());
+            }
+
         }
-        
     }
 public:
     AVL_Tree()
     {
         this->root = nullptr;
+        this->traversal_callback = nullptr;
     }
     void insert(int key)
     {
@@ -120,5 +139,17 @@ public:
     void traverse()
     {
         prv_traverse_nlr(this->root);
+    }
+    void set_callback(callback_t cb)
+    {
+        this->traversal_callback = cb;
+    }
+    unsigned int get_height()
+    {
+        return this->root->get_height();
+    }
+    int get_root_key()
+    {
+        return this->root->get_key();
     }
 };
