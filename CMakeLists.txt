@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 
-add_compile_options(-g -fsanitize=address)
+add_compile_options(-g -fsanitize=address -Wall)
 add_link_options(-fsanitize=address)
 project(avl_tree C CXX)
 

@@ -152,4 +152,11 @@ public:
     {
         return this->root->get_key();
     }
+    ~AVL_Tree()
+    {
+        while(this->root != nullptr)
+        {
+            this->root = prv_remove(this->root,this->get_root_key());
+        }
+    }
 };
